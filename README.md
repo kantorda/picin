@@ -1,1 +1,3 @@
 # picind
+
+Picture Indexing Project
