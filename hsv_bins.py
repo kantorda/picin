@@ -1,4 +1,6 @@
 #Color analysis of image in HSV color space
+#Usgae: 'python hsv_bins.py <file> -arg'
+#-arg == -b/-h
 #Code from https://giusedroid.blogspot.com/2015/04/using-python-and-k-means-in-hsv-color.html
 
 import cv2 as cv
