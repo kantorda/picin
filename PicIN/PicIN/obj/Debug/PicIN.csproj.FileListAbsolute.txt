@@ -1,0 +1,13 @@
+C:\Users\David\Documents\Code\picin\PicIN\PicIN\bin\Debug\PicIN.exe.config
+C:\Users\David\Documents\Code\picin\PicIN\PicIN\bin\Debug\PicIN.exe
+C:\Users\David\Documents\Code\picin\PicIN\PicIN\bin\Debug\PicIN.pdb
+C:\Users\David\Documents\Code\picin\PicIN\PicIN\bin\Debug\CVEngine_Wrapper.dll
+C:\Users\David\Documents\Code\picin\PicIN\PicIN\bin\Debug\CVEngine_Wrapper.pdb
+C:\Users\David\Documents\Code\picin\PicIN\PicIN\obj\Debug\PicIN.csprojAssemblyReference.cache
+C:\Users\David\Documents\Code\picin\PicIN\PicIN\obj\Debug\PicIN.Properties.Resources.resources
+C:\Users\David\Documents\Code\picin\PicIN\PicIN\obj\Debug\PicIN.csproj.GenerateResource.cache
+C:\Users\David\Documents\Code\picin\PicIN\PicIN\obj\Debug\PicIN.csproj.CoreCompileInputs.cache
+C:\Users\David\Documents\Code\picin\PicIN\PicIN\obj\Debug\PicIN.csproj.CopyComplete
+C:\Users\David\Documents\Code\picin\PicIN\PicIN\obj\Debug\PicIN.exe
+C:\Users\David\Documents\Code\picin\PicIN\PicIN\obj\Debug\PicIN.pdb
+C:\Users\David\Documents\Code\picin\PicIN\PicIN\obj\Debug\PicIN.Form1.resources
