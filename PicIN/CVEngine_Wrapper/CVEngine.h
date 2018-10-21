@@ -11,6 +11,12 @@ namespace CVEngine
 	public:
 		CVEngine();
 		void showImage(String^ filePath);
-		const char* infrastructureTest(String^ data);
+	};
+
+	public ref class CVTools : public ManagedWrapper<Core::CVTools>
+	{
+	public:
+		CVTools();
+		void printMat(String^ filePath);	
 	};
 }

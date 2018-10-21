@@ -9,8 +9,10 @@ namespace CVEngine
 		return m_Instance->showImage(string_to_char_array(filePath));
 	}
 
-	const char* CVEngine::infrastructureTest(String^ data)
+	CVTools::CVTools() {}
+
+	void CVTools::printMat(String^ filePath)
 	{
-		return m_Instance->infrastructureTest(string_to_char_array(data));
+		return m_Instance->printMat(string_to_char_array(filePath));
 	}
 }

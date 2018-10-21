@@ -7,6 +7,5 @@ namespace Core
 	public:
 		CVProcessor();
 		void showImage(const char* path);
-		const char* infrastructureTest(const char* data);
 	};
 }

@@ -1,4 +1,10 @@
 ﻿  CVProcessor.cpp
+  Tools.cpp
+  Generating Code...
+Tools.obj : warning LNK4006: "public: __cdecl cv::String::String(class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > const &)" (??0String@cv@@QEAA@AEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z) already defined in opencv_world342d.lib(opencv_world342d.dll); second definition ignored
+Tools.obj : warning LNK4006: "public: __cdecl cv::Mat::~Mat(void)" (??1Mat@cv@@QEAA@XZ) already defined in opencv_world342d.lib(opencv_world342d.dll); second definition ignored
+Tools.obj : warning LNK4006: "public: __cdecl cv::String::~String(void)" (??1String@cv@@QEAA@XZ) already defined in opencv_world342d.lib(opencv_world342d.dll); second definition ignored
+Tools.obj : warning LNK4006: "public: void __cdecl cv::Mat::release(void)" (?release@Mat@cv@@QEAAXXZ) already defined in opencv_world342d.lib(opencv_world342d.dll); second definition ignored
 CVProcessor.obj : warning LNK4006: "public: __cdecl cv::String::String(class cv::String const &)" (??0String@cv@@QEAA@AEBV01@@Z) already defined in opencv_world342d.lib(opencv_world342d.dll); second definition ignored
 CVProcessor.obj : warning LNK4006: "public: __cdecl cv::String::String(class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > const &)" (??0String@cv@@QEAA@AEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z) already defined in opencv_world342d.lib(opencv_world342d.dll); second definition ignored
 CVProcessor.obj : warning LNK4006: "public: __cdecl cv::String::String(char const *)" (??0String@cv@@QEAA@PEBD@Z) already defined in opencv_world342d.lib(opencv_world342d.dll); second definition ignored

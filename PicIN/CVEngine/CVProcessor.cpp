@@ -1,7 +1,11 @@
 ﻿#include "CVProcessor.h"
 #include <string>
-
 #include "opencv2/opencv.hpp"
+#include "Tools.h"
+
+#include <filesystem>
+#include <iostream>
+#include <fstream>
 
 namespace Core
 {
@@ -13,11 +17,6 @@ namespace Core
 		cv::Mat img = cv::imread(filePath);
 		cv::namedWindow("image", cv::WINDOW_NORMAL);
 		cv::imshow("image", img);
-		cv::waitKey(0);
-	}
-
-	const char* CVProcessor::infrastructureTest(const char* data)
-	{
-		return data;
+		cv::waitKey(5000);
 	}
 }

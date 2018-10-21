@@ -20,4 +20,14 @@ Class CVEngine.CVEngine: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
   Methods:
     showImage(String): PrivateScope, Public, HideBySig
-    infrastructureTest(String): PrivateScope, Public, HideBySig
+Class CVEngine.ManagedWrapper<Core::CVTools>: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    System.IDisposable
+  Methods:
+    Dispose(): PrivateScope, Public, Final, Virtual, HideBySig
+Class CVEngine.CVTools: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :CVEngine.ManagedWrapper<Core::CVTools>
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Methods:
+    printMat(String): PrivateScope, Public, HideBySig
