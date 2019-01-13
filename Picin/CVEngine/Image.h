@@ -17,6 +17,8 @@ namespace Core
 	const int BLUE_MAX = 135;
 	const int MAGENTA_MIN = 136;
 	const int MAGENTA_MAX = 164;
+	const float MAIN_COLOR_THRESHOLD = 0.1;
+	const float SECONDARY_COLOR_THRESHOLD = 0.02;
 
 	enum Colors
 	{

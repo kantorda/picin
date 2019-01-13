@@ -93,7 +93,7 @@ void Core::Image::processPixels()
 
 void Core::Image::calculateColor(int hue)
 {
-	if (RED_MIN <= hue && hue <= RED_MAX)
+	if (RED_MIN <= hue || hue <= RED_MAX)
 		++pixels.colors[red];
 	else if (hue <= YELLOW_MAX)
 		++pixels.colors[yellow];
@@ -125,12 +125,12 @@ void Core::Image::analyzeData()
 		// % of image taken by each color
 		stats.colorRatio[i] = (float)pixels.colors[i] / (float)pixels.count;
 		// summary
-		if (stats.colorRatio[i] >= 0.15)
+		if (stats.colorRatio[i] >= MAIN_COLOR_THRESHOLD)
 		{
 			stats.mainColors.push_back(Colors(i));
 			stats.complexity += 1;					// main colors increase complexity by 1
 		}
-		else if (stats.colorRatio[i] >= 0.5)
+		else if (stats.colorRatio[i] >= SECONDARY_COLOR_THRESHOLD)
 		{
 			stats.secondaryColors.push_back((Colors(i)));
 			stats.complexity += 0.5;				// secondary colors increase complexity by 0.5
