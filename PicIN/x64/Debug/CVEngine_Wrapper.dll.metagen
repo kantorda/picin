@@ -20,7 +20,6 @@ Class CVEngine.CVEngine: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
   Methods:
     showImage(String): PrivateScope, Public, HideBySig
-    process(String): PrivateScope, Public, HideBySig
 Class CVEngine.ManagedWrapper<Core::CVTools>: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
   Interfaces:

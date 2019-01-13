@@ -11,7 +11,6 @@ namespace CVEngine
 	public:
 		CVEngine();
 		void showImage(String^ filePath);
-		void process(String^ filePath);
 	};
 
 	public ref class CVTools : public ManagedWrapper<Core::CVTools>
