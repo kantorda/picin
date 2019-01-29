@@ -1,4 +1,0 @@
-﻿  CVEngine.cpp
-  AssemblyInfo.obj : MSIL module encountered; incremental linking is disabled for MSIL; performing full link
-CVEngine.lib(CVProcessor.obj) : warning LNK4075: ignoring '/EDITANDCONTINUE' due to '/INCREMENTAL:NO' specification
-  CVEngine_Wrapper.vcxproj -> C:\Users\David\Documents\Code\picin\PicIN\x64\Debug\CVEngine_Wrapper.dll
