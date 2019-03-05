@@ -9,6 +9,11 @@ namespace CVEngine
 		return m_Instance->showImage(string_to_char_array(filePath));
 	}
 
+	void CVEngine::process(String^ filePath)
+	{
+		return m_Instance->process(string_to_char_array(filePath));
+	}
+
 	CVTools::CVTools() {}
 
 	void CVTools::printMat(String^ filePath)
