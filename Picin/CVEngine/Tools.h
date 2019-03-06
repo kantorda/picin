@@ -1,10 +1,11 @@
-﻿#pragma once
+﻿#ifndef TOOLS_H
+#define TOOLS_H
+#include "Image.h"
 
-namespace Core
+class Tools
 {
-	class CVTools
-	{
-	public:
-		static void printMat(const char* path);
-	};
-}
+public:
+	static void printStatistics(Core::Image img, std::string path);
+};
+
+#endif //TOOLS_H

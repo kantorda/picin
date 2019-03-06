@@ -130,11 +130,13 @@
     <ClInclude Include="CVProcessor.h" />
     <ClInclude Include="Image.h" />
     <ClInclude Include="Tools.h" />
+    <ClInclude Include="ToolsFrontend.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CVProcessor.cpp" />
     <ClCompile Include="Image.cpp" />
     <ClCompile Include="Tools.cpp" />
+    <ClCompile Include="ToolsFrontend.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

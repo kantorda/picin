@@ -1,43 +1,53 @@
 ﻿#include "Tools.h"
-#include <iostream>
-#include <ctime>
 #include <filesystem>
-#include <opencv2/core/mat.hpp>
-#include <opencv2/core/core_c.h>
-#include <opencv2/core/types_c.h>
 #include <fstream>
-#include <opencv2/imgcodecs.hpp>
+namespace fs = std::experimental::filesystem;
 
-using namespace std;
-
-void Core::CVTools::printMat(const char* path)
+void Tools::printStatistics(Core::Image img, std::string filePath)
 {
-	string imgPath(path);
-	size_t targetChar = imgPath.find_last_of('\\');
-	size_t periodLocation = imgPath.find_last_of('.');
-	string fileName = imgPath.substr(targetChar, (periodLocation - targetChar));
+	size_t targetChar = filePath.find_last_of('\\');
+	size_t periodLocation = filePath.find_last_of('.');
+	std::string fileName = filePath.substr(targetChar, (periodLocation - targetChar));
 
-	string logDir = experimental::filesystem::current_path().string() + "\\..\\..\\..\\..\\logs\\";
-	string outFilePath = logDir + fileName + "_matrix";
+	std::string logDir = fs::current_path().string() + "\\..\\..\\..\\..\\logs\\";
+	std::string outFilePath = logDir + fileName + "_matrix.txt";
 
-	cv::Mat img = cv::imread(imgPath);
+	if (!fs::exists(fs::path(logDir)))
+		fs::create_directory(fs::path(logDir));
 
-	if (!experimental::filesystem::exists(experimental::filesystem::path(logDir)))
-		experimental::filesystem::create_directory(experimental::filesystem::path(logDir));
-
-	ofstream oFile(outFilePath);
-	if (oFile.is_open())
-	{
-		oFile << img;
-		oFile.flush();
-		oFile.close();
-	}
-
-	else
-	{
+	std::ofstream oFile(outFilePath);
+	if (!oFile.is_open())
 		oFile.open(outFilePath);
-		oFile << img;
-		oFile.flush();
-		oFile.close();
-	}
+	oFile << "Analysis of file, " << filePath << "\n";
+	oFile << "Elapsed time: " << img.getTime() << "\n";
+	oFile << "Number processed pixels: " << img.pixels.count << "\n";
+	oFile << "Number of unprocessed pixels: " << img.stats.numBadPixels << "\n";
+	oFile << "Luminocity: ";
+	if (img.stats.brightness == Core::bright)
+		oFile << "Bright\n";
+	else if (img.stats.brightness == Core::neutral)
+		oFile << "Neutral\n";
+	else
+		oFile << "Dark\n";
+	oFile << "Summary\n";
+	oFile << "Complexity: " << img.stats.complexity << "\n";
+	oFile << "Main Colors: ";
+	for (Core::Colors color : img.stats.mainColors)
+		oFile << Core::ColorsString[color] << ", ";
+	oFile << std::endl;
+	oFile << "Secondary Colors: ";
+	for (Core::Colors color : img.stats.secondaryColors)
+		oFile << Core::ColorsString[color] << ", ";
+	oFile << std::endl;
+	oFile << "Percentage of image by color:\n";
+	oFile << "Red: " << img.stats.colorRatio[Core::red] << "\n";
+	oFile << "Yellow: " << img.stats.colorRatio[Core::yellow] << "\n";
+	oFile << "Green: " << img.stats.colorRatio[Core::green] << "\n";
+	oFile << "Cyan: " << img.stats.colorRatio[Core::cyan] << "\n";
+	oFile << "Blue: " << img.stats.colorRatio[Core::blue] << "\n";
+	oFile << "Purple: " << img.stats.colorRatio[Core::purple] << "\n";
+	oFile << "Black: " << img.stats.colorRatio[Core::black] << "\n";
+	oFile << "Gray: " << img.stats.colorRatio[Core::gray] << "\n";
+	oFile << "White: " << img.stats.colorRatio[Core::white] << "\n";
+	oFile.flush();
 }
