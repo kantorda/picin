@@ -1,6 +1,7 @@
 ﻿#include "Tools.h"
 #include <filesystem>
 #include <fstream>
+#include <opencv2/highgui.hpp>
 namespace fs = std::experimental::filesystem;
 
 void Tools::printStatistics(Core::Image img, std::string filePath)

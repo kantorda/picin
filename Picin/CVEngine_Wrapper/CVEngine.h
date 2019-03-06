@@ -10,7 +10,6 @@ namespace CVEngine
 	{
 	public:
 		CVEngine();
-		void showImage(String^ filePath);
 		void process(String^ filePath);
 	};
 
@@ -18,6 +17,7 @@ namespace CVEngine
 	{
 	public:
 		CVTools();
+		void showImage(String^ filePath);
 		void printMat(String^ filePath);	
 	};
 }

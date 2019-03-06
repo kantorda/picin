@@ -17,9 +17,9 @@ namespace PicIN
 
         void OnClick_Show(object sender, EventArgs e)
         {
-            CVEngine.CVEngine cvEngine = new CVEngine.CVEngine();
+            CVTools cvTools = new CVTools();
 
-            cvEngine.showImage(textBox1.Text);
+            cvTools.showImage(textBox1.Text);
         }
 
         private void OnClick_Print(object sender, EventArgs e)

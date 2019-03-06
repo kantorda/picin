@@ -10,13 +10,9 @@ namespace Core
 {
 	CVProcessor::CVProcessor() = default;
 
-	void CVProcessor::showImage(const char* path)
+	void CVProcessor::cvEngineStart(const char* path)
 	{
-		std::string filePath(path);
-		cv::Mat img = cv::imread(filePath);
-		cv::namedWindow("image", cv::WINDOW_NORMAL);
-		cv::imshow("image", img);
-		cv::waitKey(5000);
+		
 	}
 
 	void CVProcessor::process(const char* path)

@@ -6,7 +6,7 @@ namespace Core
 	{
 	public:
 		CVProcessor();
-		void showImage(const char* path);
+		void cvEngineStart(const char* path);
 		void process(const char* path);
 		const char* scanDirectory(const char* path);
 	};

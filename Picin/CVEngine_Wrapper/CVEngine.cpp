@@ -4,17 +4,17 @@ namespace CVEngine
 {
 	CVEngine::CVEngine() {}
 
-	void CVEngine::showImage(String^ filePath)
-	{
-		return m_Instance->showImage(string_to_char_array(filePath));
-	}
-
 	void CVEngine::process(String^ filePath)
 	{
 		return m_Instance->process(string_to_char_array(filePath));
 	}
 
 	CVTools::CVTools() {}
+
+	void CVTools::showImage(String^ filePath)
+	{
+		return m_Instance->showImage(string_to_char_array(filePath));
+	}
 
 	void CVTools::printMat(String^ filePath)
 	{

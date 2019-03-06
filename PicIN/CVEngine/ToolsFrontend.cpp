@@ -7,8 +7,19 @@
 #include <opencv2/core/types_c.h>
 #include <fstream>
 #include <opencv2/imgcodecs.hpp>
+#include <opencv2/highgui.hpp>
+#include "Tools.h"
 
 using namespace std;
+
+void Core::CVTools::showImage(const char* path)
+{
+	std::string filePath(path);
+	cv::Mat img = cv::imread(filePath);
+	cv::namedWindow("image", cv::WINDOW_NORMAL);
+	cv::imshow("image", img);
+	cv::waitKey(5000);
+}
 
 void Core::CVTools::printMat(const char* path)
 {
