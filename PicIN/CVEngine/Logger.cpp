@@ -43,15 +43,31 @@ void Logger::worker()
 	{
 		while (!logMtx.try_lock())
 			std::this_thread::sleep_for(std::chrono::microseconds(10));
-		logMtx.lock();
 		if (!live)
+		{
+			logMtx.unlock();
 			break;
+		}
+		if (cyclesDown >= 300)
+		{
+			writeMsg("ERROR!!!");
+			writeMsg("Logger has been idle for 5 minutes.  Ending thread.");
+			live = false;
+			logMtx.unlock();
+			break;
+		}
 		logMtx.unlock();
 
 		if (msgQueue->empty())
+		{
+			++cyclesDown;
 			std::this_thread::sleep_for(std::chrono::seconds(1));
+		}
 		else
+		{
 			writeMsg();
+			cyclesDown = 0;
+		}
 	}
 }
 
@@ -73,5 +89,15 @@ void Logger::writeMsg()
 
 	msgQueue->pop();
 }
+
+void Logger::writeMsg(std::string msg)
+{
+	tm buf;
+	char timeS[26];
+
+	log << asctime_s(timeS, sizeof timeS, (time(0), &buf)) << "  ";
+	log << msg << '\n';
+}
+
 
 

@@ -32,9 +32,11 @@ private:
 
 	const std::string logDir = fs::current_path().string() + "\\..\\..\\..\\..\\logs\\";
 	const std::string logFile = logDir + "log.txt";
+	int cyclesDown = 0;
 	static std::fstream log;
 	static std::queue<Message>* msgQueue;
 	static bool live;
 	void worker();
 	static void writeMsg();
+	static void writeMsg(std::string msg);
 };
