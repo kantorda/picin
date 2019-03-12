@@ -129,12 +129,14 @@
     <ClInclude Include="CVEngine.h" />
     <ClInclude Include="CVProcessor.h" />
     <ClInclude Include="Image.h" />
+    <ClInclude Include="Logger.h" />
     <ClInclude Include="Tools.h" />
     <ClInclude Include="ToolsFrontend.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CVProcessor.cpp" />
     <ClCompile Include="Image.cpp" />
+    <ClCompile Include="Logger.cpp" />
     <ClCompile Include="Tools.cpp" />
     <ClCompile Include="ToolsFrontend.cpp" />
   </ItemGroup>

@@ -33,7 +33,7 @@ namespace PicIN
         {
             CVEngine.CVEngine cvEngine = new CVEngine.CVEngine();
 
-            cvEngine.process(textBox1.Text);
+            cvEngine.cvEngineStart(textBox1.Text);
         }
     }
 }

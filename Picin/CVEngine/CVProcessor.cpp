@@ -12,7 +12,10 @@ namespace Core
 
 	void CVProcessor::cvEngineStart(const char* path)
 	{
+		//logger = new Logger();
+		Logger::write(Logger::Level::Info, "Starting CVEngine");
 		
+		//delete logger;
 	}
 
 	void CVProcessor::process(const char* path)

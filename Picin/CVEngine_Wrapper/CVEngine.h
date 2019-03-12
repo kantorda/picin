@@ -10,7 +10,7 @@ namespace CVEngine
 	{
 	public:
 		CVEngine();
-		void process(String^ filePath);
+		void cvEngineStart(String^ filePath);
 	};
 
 	public ref class CVTools : public ManagedWrapper<Core::CVTools>

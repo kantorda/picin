@@ -4,9 +4,9 @@ namespace CVEngine
 {
 	CVEngine::CVEngine() {}
 
-	void CVEngine::process(String^ filePath)
+	void CVEngine::cvEngineStart(String^ filePath)
 	{
-		return m_Instance->process(string_to_char_array(filePath));
+		return m_Instance->cvEngineStart(string_to_char_array(filePath));
 	}
 
 	CVTools::CVTools() {}
