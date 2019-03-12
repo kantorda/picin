@@ -28,13 +28,45 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.inputFilePath = new System.Windows.Forms.TextBox();
+            this.buttonProcess = new System.Windows.Forms.Button();
+            this.SuspendLayout();
+            // 
+            // inputFilePath
+            // 
+            this.inputFilePath.Location = new System.Drawing.Point(246, 195);
+            this.inputFilePath.Name = "inputFilePath";
+            this.inputFilePath.Size = new System.Drawing.Size(100, 22);
+            this.inputFilePath.TabIndex = 0;
+            // 
+            // buttonProcess
+            // 
+            this.buttonProcess.Location = new System.Drawing.Point(364, 195);
+            this.buttonProcess.Name = "buttonProcess";
+            this.buttonProcess.Size = new System.Drawing.Size(75, 23);
+            this.buttonProcess.TabIndex = 1;
+            this.buttonProcess.Text = "Start";
+            this.buttonProcess.UseVisualStyleBackColor = true;
+            this.buttonProcess.Click += OnClick_Process;
+            // 
+            // Form1
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.buttonProcess);
+            this.Controls.Add(this.inputFilePath);
+            this.Name = "Form1";
             this.Text = "Form1";
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
         }
 
         #endregion
+
+        private System.Windows.Forms.TextBox inputFilePath;
+        private System.Windows.Forms.Button buttonProcess;
     }
 }
 

@@ -16,5 +16,10 @@ namespace PicIN
         {
             InitializeComponent();
         }
+
+        private void OnClick_Process(object sender, EventArgs e)
+        {
+            Interface.processImagePrintStatistics(inputFilePath.Text);
+        }
     }
 }
