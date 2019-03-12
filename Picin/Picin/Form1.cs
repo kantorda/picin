@@ -1,6 +1,12 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Forms;
-using CVEngine;
 
 namespace PicIN
 {
@@ -9,31 +15,6 @@ namespace PicIN
         public Form1()
         {
             InitializeComponent();
-
-            button1.Click += OnClick_Show;
-            button2.Click += OnClick_Print;
-            button3.Click += OnClick_Process;
-        }
-
-        void OnClick_Show(object sender, EventArgs e)
-        {
-            CVTools cvTools = new CVTools();
-
-            cvTools.showImage(textBox1.Text);
-        }
-
-        private void OnClick_Print(object sender, EventArgs e)
-        {
-            CVTools cvTools = new CVTools();
-
-            cvTools.printMat(textBox1.Text);
-        }
-
-        void OnClick_Process(object sender, EventArgs e)
-        {
-            CVEngine.CVEngine cvEngine = new CVEngine.CVEngine();
-
-            cvEngine.cvEngineStart(textBox1.Text);
         }
     }
 }
