@@ -36,6 +36,6 @@ namespace Core
 		if (fs::is_directory(fs::path(path)))
 			return "path does not point to a directory";
 
-
+		return NULL;
 	}
 }

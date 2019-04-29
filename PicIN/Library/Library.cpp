@@ -3,8 +3,12 @@
 #include "stdafx.h"
 #include "Processor.h"
 
-EXTERN_C __declspec(dllexport) void processImagePrintStatistics(char* path)
+#ifndef EXPORT
+#define EXPORT __declspec(dllexport)
+#endif
+
+
+EXTERN_C EXPORT void processImagePrintStatistics(char* path)
 {
 	Core::Processor::process(std::string(path));
 }
-
