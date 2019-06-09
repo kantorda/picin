@@ -4,7 +4,7 @@
 
 Core::Image::Image() : stats() {}
 
-Core::Image::Image(cv::Mat mat) : mat(mat) {}
+Core::Image::Image(cv::Mat mat, std::string path) : mat(mat), path(path) {}
 
 Core::Image::~Image() {}
 
@@ -142,4 +142,32 @@ void Core::Image::analyzeData()
 double Core::Image::getTime()
 {
 	return elapsedTime;
+}
+
+std::string Core::Image::serialize()
+{
+	std::string data = path + DATA_SEPARATOR;
+	data += "LUM=" + ((stats.brightness == bright ? "bright" : (stats.brightness == neutral ? "neutral" : "dark")) + DATA_SEPARATOR);
+	data += "COMPLEXITY=" + std::to_string(stats.complexity) + DATA_SEPARATOR;
+	data += "Colors_Main=[";
+	for (Colors color : stats.mainColors)
+		data += ColorsString[color] + ";";
+	data += "]" + DATA_SEPARATOR;
+	data += "Colors_Secondary=[";
+	for (Colors color : stats.secondaryColors)
+		data += ColorsString[color] + ";";
+	data += "]" + DATA_SEPARATOR;
+	data += "Percentages=[ ";
+	data += "RED=" + std::to_string(stats.colorRatio[red]) + ";";
+	data += "YELLOW=" + std::to_string(stats.colorRatio[yellow]) + ";";
+	data += "GREEN=" + std::to_string(stats.colorRatio[green]) + ";";
+	data += "CYAN=" + std::to_string(stats.colorRatio[cyan]) + ";";
+	data += "BLUE=" + std::to_string(stats.colorRatio[blue]) + ";";
+	data += "PURPLE=" + std::to_string(stats.colorRatio[purple]) + ";";
+	data += "BLACK=" + std::to_string(stats.colorRatio[black]) + ";";
+	data += "GRAY=" + std::to_string(stats.colorRatio[gray]) + ";";
+	data += "WHITE=" + std::to_string(stats.colorRatio[white]) + ";";
+	data += DATA_SEPARATOR + IMAGE_SEPARATOR;
+
+	return data;
 }

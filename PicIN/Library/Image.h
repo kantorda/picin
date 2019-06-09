@@ -2,6 +2,7 @@
 #include <vector>
 #include <opencv2/core/mat.hpp>
 #include <map>
+#include <string>
 
 namespace Core
 {
@@ -59,7 +60,6 @@ namespace Core
 		int count = 0;
 		std::vector<int> colors{ 0,0,0,0,0,0,0,0,0 };
 		std::vector<int> brightnessCount{ 0,0,0 };
-
 	};
 	struct Statistics
 	{
@@ -69,7 +69,6 @@ namespace Core
 		std::vector<float> colorRatio{ 0,0,0,0,0,0,0,0,0 };
 		std::vector<Colors> mainColors;
 		std::vector<Colors> secondaryColors;
-
 	};
 
 	class Image
@@ -77,6 +76,9 @@ namespace Core
 	private:
 		double tickCount = 0;
 		double elapsedTime = 0;
+		std::string path;
+		const std::string DATA_SEPARATOR = "*";
+		const std::string IMAGE_SEPARATOR = "*?*";
 		cv::Mat mat;
 
 		void timerRun();
@@ -86,7 +88,7 @@ namespace Core
 		Statistics stats;
 
 		Image();
-		Image(cv::Mat mat);
+		Image(cv::Mat mat, std::string path);
 		~Image();
 
 		void process();
@@ -94,5 +96,6 @@ namespace Core
 		void calculateColor(int hue);
 		void analyzeData();
 		double getTime();
+		std::string serialize();
 	};
 }

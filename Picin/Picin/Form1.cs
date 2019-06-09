@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace PicIN
 {
@@ -19,7 +20,8 @@ namespace PicIN
 
         private void OnClick_Process(object sender, EventArgs e)
         {
-            Interface.processImagePrintStatistics(inputFilePath.Text);
+            string data = Interface.processDirectory(inputFilePath.Text);
+            File.WriteAllText(@"C:\Users\David\Documents\Code\picin\logs\data.txt", data);
         }
     }
 }

@@ -1,5 +1,7 @@
 ﻿#pragma once
 #include <filesystem>
+#include <vector>
+#include <string>
 //#include "Logger.h"
 namespace fs = std::experimental::filesystem;
 
@@ -9,11 +11,14 @@ namespace Core
 	{
 	public:
 		Processor();
-		void cvEngineStart(std::string filePath);
-		static void process(std::string filePath);
+		const char* cvEngineStart(std::string directoryPath);
+		static void process(std::string filePath, std::vector<std::string>* imageData);
 	private:
 		//Logger* logger;
 		/*void process(std::string filePath);*/
+		void threadWorker(std::vector<fs::directory_entry> files, std::vector<std::string>* imageData);
+		bool isValidImage(fs::directory_entry file);
 		const char* scanDirectory(const char* path);
+		std::vector<std::string> imageData;
 	};
 }

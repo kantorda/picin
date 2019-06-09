@@ -8,7 +8,7 @@
 #endif
 
 
-EXTERN_C EXPORT void processImagePrintStatistics(char* path)
+EXTERN_C EXPORT const char* processDirectory(char* path)
 {
-	Core::Processor::process(std::string(path));
+	return Core::Processor().cvEngineStart(std::string(path));
 }

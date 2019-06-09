@@ -6,6 +6,7 @@ namespace PicIN
     public class Interface
     {
         [DllImport("Library", SetLastError = true)]
-        public static extern int processImagePrintStatistics([MarshalAs(UnmanagedType.LPStr)] String data);
+        [return: MarshalAs(UnmanagedType.BStr)]
+        public static extern string processDirectory([MarshalAs(UnmanagedType.LPStr)] String data);
     }
 }
