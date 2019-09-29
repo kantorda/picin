@@ -30,6 +30,7 @@
         {
             this.inputFilePath = new System.Windows.Forms.TextBox();
             this.buttonProcess = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // inputFilePath
@@ -49,11 +50,21 @@
             this.buttonProcess.UseVisualStyleBackColor = true;
             this.buttonProcess.Click += OnClick_Process;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(460, 195);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(46, 17);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "label1";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.buttonProcess);
             this.Controls.Add(this.inputFilePath);
             this.Name = "Form1";
@@ -67,6 +78,7 @@
 
         private System.Windows.Forms.TextBox inputFilePath;
         private System.Windows.Forms.Button buttonProcess;
+        private System.Windows.Forms.Label label1;
     }
 }
 

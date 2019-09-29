@@ -40,8 +40,9 @@ namespace PicIN
         #region Event Handlers
 
         private void OnClick_Process(object sender, EventArgs e)
-        {                     
-            Task.Run(() => ProcessAsync(inputFilePath.Text));
+        {
+            //Task.Run(() => ProcessAsync(inputFilePath.Text));
+            label1.Text = LibraryInterface.Interface2.Test(inputFilePath.Text);
         }
 
         private async Task ProcessAsync(string path)
