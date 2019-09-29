@@ -13,15 +13,55 @@ namespace PicIN
 {
     public partial class Form1 : Form
     {
+        #region Private Properties        
+        Controller mController = Controller.Instance;
+        ImageProcessing mImageProcessing = new ImageProcessing();
+        #endregion
+
+        #region Public Properties
+
+        #endregion
+        
+        #region Initializer
         public Form1()
         {
             InitializeComponent();
         }
+        #endregion
+
+        #region Public Methods
+
+        #endregion
+
+        #region Private Methods
+        
+        #endregion
+
+        #region Event Handlers
 
         private void OnClick_Process(object sender, EventArgs e)
-        {
-            string data = Interface.processDirectory(inputFilePath.Text);
-            File.WriteAllText(@"C:\Users\David\Documents\Code\picin\logs\data.txt", data);
+        {                     
+            Task.Run(() => ProcessAsync(inputFilePath.Text));
         }
+
+        private async Task ProcessAsync(string path)
+        {
+            
+
+            if (await mImageProcessing.ProcessDirectoryAsync(inputFilePath.Text).ConfigureAwait(false))
+            {
+                string writePath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + @"\Results.txt";
+                StreamWriter osStreamWriter = new StreamWriter(writePath);
+
+                foreach (KeyValuePair<string, string> entry in mImageProcessing.ImageData)
+                {
+                    osStreamWriter.WriteLine(entry.Key + " " + entry.Value);
+                }
+
+                osStreamWriter.Flush();
+            }
+        }
+
+        #endregion        
     }
 }

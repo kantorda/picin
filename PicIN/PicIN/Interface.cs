@@ -8,5 +8,9 @@ namespace PicIN
         [DllImport("Library", SetLastError = true)]
         [return: MarshalAs(UnmanagedType.BStr)]
         public static extern string processDirectory([MarshalAs(UnmanagedType.LPStr)] String data);
+
+        [DllImport("Library", SetLastError = true)]
+        [return: MarshalAs(UnmanagedType.BStr)]
+        public static extern string processImage([MarshalAs(UnmanagedType.LPStr)] String path);
     }
 }

@@ -100,6 +100,15 @@ namespace Core
 		imageData->push_back(img.serialize());
 	}
 
+	const char* Processor::processImage(std::string filePath)
+	{
+		cv::Mat mat = cv::imread(filePath);
+		Image img(mat, filePath);
+		img.process();
+
+		return img.serialize().c_str();
+	}
+
 	bool Processor::isValidImage(fs::directory_entry file)
 	{
 		if (!exists(file))

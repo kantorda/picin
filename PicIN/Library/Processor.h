@@ -13,6 +13,7 @@ namespace Core
 		Processor();
 		const char* cvEngineStart(std::string directoryPath);
 		static void process(std::string filePath, std::vector<std::string>* imageData);
+		const char* processImage(std::string filePath);
 	private:
 		//Logger* logger;
 		/*void process(std::string filePath);*/
