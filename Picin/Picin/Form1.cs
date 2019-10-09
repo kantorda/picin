@@ -42,7 +42,14 @@ namespace PicIN
         private void OnClick_Process(object sender, EventArgs e)
         {
             //Task.Run(() => ProcessAsync(inputFilePath.Text));
-            label1.Text = LibraryInterface.Interface2.Test(inputFilePath.Text);
+
+            String temp;
+            LibraryInterface.Interface2.Test(inputFilePath.Text, out temp);
+            label1.Text = temp;
+
+            //string temp = String.Empty;
+            //Interface.TestOutParams(inputFilePath.Text, ref temp);
+            //label1.Text = temp;
         }
 
         private async Task ProcessAsync(string path)

@@ -12,5 +12,8 @@ namespace PicIN
         [DllImport("Library", SetLastError = true)]
         [return: MarshalAs(UnmanagedType.BStr)]
         public static extern string processImage([MarshalAs(UnmanagedType.LPStr)] String path);
+
+        [DllImport("Library", SetLastError = true)]
+        public static extern void TestOutParams([MarshalAs(UnmanagedType.LPStr)] String inParam, [MarshalAs(UnmanagedType.BStr)] ref String outParam);
     }
 }

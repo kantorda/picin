@@ -6,6 +6,6 @@ namespace LibraryInterface {
 	public ref class Interface2
 	{
 	public:
-		static String^ Test(String^ input);
+		static Void Test(String^ input, [Runtime::InteropServices::Out] String^% output);
 	};
 }

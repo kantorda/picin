@@ -4,9 +4,9 @@
 #include <string.h>
 
 namespace LibraryInterface {
-	String^ Interface2::Test(String^ input)
+	Void Interface2::Test(String^ input, [Runtime::InteropServices::Out] String^% output)
 	{
-		String^ output = gcnew String("your input was ");
-		return output + input;
+		output = gcnew String("your input was " + input);
+		//return output + input;
 	}
 }
