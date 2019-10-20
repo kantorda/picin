@@ -16,6 +16,7 @@ namespace PicIN
         #region Private Properties        
         Controller mController = Controller.Instance;
         ImageProcessing mImageProcessing = new ImageProcessing();
+
         #endregion
 
         #region Public Properties
@@ -41,33 +42,24 @@ namespace PicIN
 
         private void OnClick_Process(object sender, EventArgs e)
         {
-            //Task.Run(() => ProcessAsync(inputFilePath.Text));
-
-            String temp;
-            LibraryInterface.Interface2.Test(inputFilePath.Text, out temp);
-            label1.Text = temp;
-
-            //string temp = String.Empty;
-            //Interface.TestOutParams(inputFilePath.Text, ref temp);
-            //label1.Text = temp;
+            Task.Run(() => ProcessAsync(inputFilePath.Text).ConfigureAwait(false));
         }
 
         private async Task ProcessAsync(string path)
         {
-            
-
-            if (await mImageProcessing.ProcessDirectoryAsync(inputFilePath.Text).ConfigureAwait(false))
+            if (await mImageProcessing.ProcessDirectoryAsync(inputFilePath.Text))
             {
                 string writePath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + @"\Results.txt";
                 StreamWriter osStreamWriter = new StreamWriter(writePath);
 
-                foreach (KeyValuePair<string, string> entry in mImageProcessing.ImageData)
-                {
-                    osStreamWriter.WriteLine(entry.Key + " " + entry.Value);
-                }
+                foreach (ImageData image in mController.mImageList)
+                    osStreamWriter.WriteLine(image.mPath);
 
                 osStreamWriter.Flush();
+                osStreamWriter.Close();
             }
+
+            label1.Text = "Done";
         }
 
         #endregion        

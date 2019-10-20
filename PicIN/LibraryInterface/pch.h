@@ -9,4 +9,34 @@
 
 // add headers that you want to pre-compile here
 
+#pragma region C++ 
+#include <vector>
+#include <map>
+#include <string>
+#include <filesystem>
+#include <vector>
+#include <thread>
+#include <filesystem>
+#include <fstream>
+#pragma endregion
+
+#pragma region C++/CLI
+#include <msclr\marshal_cppstd.h>
+#pragma endregion
+
+#pragma region OpenCV
+#include <opencv2/core/mat.hpp>
+#include <opencv2/shape/hist_cost.hpp>
+#include "opencv2/opencv.hpp"
+#include <opencv2/highgui.hpp>
+#pragma endregion
+
+#pragma region Internal
+#include "Image.h"
+#include "Processor.h"
+#include "Tools.h"
+#include "LibraryInterface.h"
+#include "Tools.h"
+#pragma endregion
+
 #endif //PCH_H

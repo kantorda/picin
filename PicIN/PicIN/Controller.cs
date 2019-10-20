@@ -1,4 +1,6 @@
-﻿namespace PicIN
+﻿using System.Collections.Concurrent;
+
+namespace PicIN
 {
     public class Controller
     {
@@ -16,7 +18,7 @@
         #endregion
 
         #region Public Properties        
-        
+        public ConcurrentBag<ImageData> mImageList = new ConcurrentBag<ImageData>();
         #endregion        
 
         #region Private Methods
