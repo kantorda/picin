@@ -75,7 +75,6 @@
     </Compile>
     <Compile Include="FSHelper.cs" />
     <Compile Include="ImageProcessing.cs" />
-    <Compile Include="Interface.cs" />
     <Compile Include="Logger.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

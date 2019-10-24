@@ -3,10 +3,9 @@
 using namespace System;
 
 namespace LibraryInterface {
-	public ref class Interface2
+	public ref class Interface
 	{
 	public:
-		static Void Test(String^ input, [Runtime::InteropServices::Out] String^% output);
 		static Void ProcessImage(String^ path, [Runtime::InteropServices::Out] String^% luminocity,
 			[Runtime::InteropServices::Out] String^% complexity, [Runtime::InteropServices::Out] array<String^>^ mainColor,
 			[Runtime::InteropServices::Out] array<String^>^ secondaryColor, [Runtime::InteropServices::Out] String^% red,

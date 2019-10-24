@@ -62,16 +62,13 @@ namespace PicIN
             }
             else
             {
-                //mLogger.Write("Requested directory string was either empty or could not be found: " + directoryPath);
                 return false;
             }
 
-            mImageList = TargetDirectory.GetFiles().Where(x => (x.Extension == ".jpg" || x.Extension == ".png"))
-                .ToList();
+            mImageList = TargetDirectory.GetFiles().Where(x => (x.Extension == ".jpg" || x.Extension == ".png")).ToList();
 
             if (!Images.Any())
             {
-                //mLogger.Write("No .jpg or .png files found in target directory");
                 return false;
             }
 

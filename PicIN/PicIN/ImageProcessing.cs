@@ -11,7 +11,6 @@ namespace PicIN
     {
         #region Private Properties
         private FSHelper mFSHelper = new FSHelper();
-        //private ConcurrentDictionary<string, string> mImageData = new ConcurrentDictionary<string, string>();
         private Controller mController = Controller.Instance;
         #endregion
 
@@ -27,7 +26,7 @@ namespace PicIN
             String[] mainColors = new String[9];
             String[] secondaryColors = new String[9];
 
-            LibraryInterface.Interface2.ProcessImage(path, out String luminocity,
+            LibraryInterface.Interface.ProcessImage(path, out String luminocity,
             out String complexity, mainColors, secondaryColors, out String red,
             out String yellow, out String green, out String cyan, out String blue,
             out String purple, out String black, out String gray, out String white);
@@ -48,7 +47,7 @@ namespace PicIN
             image.mColorWeight[image.ColorStringToEnum("gray")] = float.Parse(gray);
             image.mColorWeight[image.ColorStringToEnum("white")] = float.Parse(white);
 
-            mController.mImageList.Add(image);
+            mController.ImageList.Add(image);
         }
         #endregion
 
@@ -58,11 +57,16 @@ namespace PicIN
             if (!mFSHelper.FindImages(path))
                 return false;
 
-            mController.mImageList = new ConcurrentBag<ImageData>();
+            // No clean way to Clear a ConcurrentBag
+            // Re-indexing a directory from scratch
+            // If data from a previous run or directory is stored in memory
+            // replace it with a new container, let garbage collection clean up the memory
+            if (!mController.ImageList.IsEmpty)
+                mController.ImageList = new ConcurrentBag<ImageData>();
 
              _ = Parallel.ForEach(mFSHelper.ImageList, img => ProcessImage(img.FullName));
 
-            return !mController.mImageList.IsEmpty;
+            return !mController.ImageList.IsEmpty;
         }
 
         #endregion

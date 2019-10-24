@@ -52,7 +52,7 @@ namespace PicIN
                 string writePath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + @"\Results.txt";
                 StreamWriter osStreamWriter = new StreamWriter(writePath);
 
-                foreach (ImageData image in mController.mImageList)
+                foreach (ImageData image in mController.ImageList)
                     osStreamWriter.WriteLine(image.mPath);
 
                 osStreamWriter.Flush();

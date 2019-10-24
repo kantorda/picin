@@ -23,7 +23,7 @@ void Core::Image::timerRun()
 
 void Core::Image::process()
 {
-	timerRun();
+	//timerRun();
 
 	// Convert from BGR to HSV
 	cv::cvtColor(mat, mat, cv::COLOR_BGR2HSV);
@@ -32,7 +32,7 @@ void Core::Image::process()
 
 	analyzeData();
 
-	timerRun();
+	//timerRun();
 }
 
 void Core::Image::processPixels()
@@ -180,13 +180,10 @@ List<List<String^>^>^ Core::Image::serializeToList()
 	data[0]->Add(marshal_as<String^>(path));
 	data[1]->Add((stats.brightness == bright ? "bright" : (stats.brightness == neutral ? "neutral" : "dark")));
 	data[2]->Add(marshal_as<String^>(std::to_string(stats.complexity)));
-	//data[3]->Add("Colors_Main=[");
 	for (Colors color : stats.mainColors)
 		data[3]->Add(marshal_as<String^>(ColorsString[color]));
-	//data[4]->Add("Colors_Secondary=[");
 	for (Colors color : stats.secondaryColors)
 		data[4]->Add(marshal_as<String^>(ColorsString[color]));
-	//data[6]->Add("Percentages=[ ");
 	data[5]->Add(marshal_as<String^>(std::to_string(stats.colorRatio[red])));
 	data[6]->Add(marshal_as<String^>(std::to_string(stats.colorRatio[yellow])));
 	data[7]->Add(marshal_as<String^>(std::to_string(stats.colorRatio[green])));

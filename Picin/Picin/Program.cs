@@ -19,8 +19,6 @@ namespace PicIN
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Form1());
-
-            //mLogger.Write("Starting PicIN at " + DateTime.Now);
         }
     }
 }
