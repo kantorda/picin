@@ -47,7 +47,7 @@ namespace PicIN
             image.mColorWeight[image.ColorStringToEnum("gray")] = float.Parse(gray);
             image.mColorWeight[image.ColorStringToEnum("white")] = float.Parse(white);
 
-            mController.ImageList.Add(image);
+            mController.ImageListAll.Add(image);
         }
         #endregion
 
@@ -61,12 +61,12 @@ namespace PicIN
             // Re-indexing a directory from scratch
             // If data from a previous run or directory is stored in memory
             // replace it with a new container, let garbage collection clean up the memory
-            if (!mController.ImageList.IsEmpty)
-                mController.ImageList = new ConcurrentBag<ImageData>();
+            if (!mController.ImageListAll.IsEmpty)
+                mController.ImageListAll = new ConcurrentBag<ImageData>();
 
              _ = Parallel.ForEach(mFSHelper.ImageList, img => ProcessImage(img.FullName));
 
-            return !mController.ImageList.IsEmpty;
+            return !mController.ImageListAll.IsEmpty;
         }
 
         #endregion

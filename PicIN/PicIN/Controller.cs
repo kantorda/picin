@@ -1,4 +1,6 @@
 ﻿using System.Collections.Concurrent;
+using System.Collections.Generic;
+using System.IO;
 
 namespace PicIN
 {
@@ -14,11 +16,12 @@ namespace PicIN
         #region Private Properties  
         Logger mLogger = Logger.Instance;
         FSHelper mFSHelper = new FSHelper();
-        private string mDirectoryPath;
         #endregion
 
-        #region Public Properties        
-        public ConcurrentBag<ImageData> ImageList = new ConcurrentBag<ImageData>();
+        #region Public Properties
+        public DirectoryInfo TargetDirectory;
+        public ConcurrentBag<ImageData> ImageListAll = new ConcurrentBag<ImageData>();
+        public List<ImageData> ImageListSearchResults = new List<ImageData>();
         #endregion        
 
         #region Private Methods
