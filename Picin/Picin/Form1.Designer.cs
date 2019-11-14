@@ -58,9 +58,9 @@
             // mImageListView
             // 
             this.mImageListView.HideSelection = false;
-            this.mImageListView.Location = new System.Drawing.Point(12, 196);
+            this.mImageListView.Location = new System.Drawing.Point(12, 215);
             this.mImageListView.Name = "mImageListView";
-            this.mImageListView.Size = new System.Drawing.Size(1158, 716);
+            this.mImageListView.Size = new System.Drawing.Size(1158, 697);
             this.mImageListView.TabIndex = 2;
             this.mImageListView.UseCompatibleStateImageBehavior = false;
             // 
@@ -80,12 +80,12 @@
             "Gray"});
             this.mMainColorsCheckedListBox.Location = new System.Drawing.Point(12, 33);
             this.mMainColorsCheckedListBox.Name = "mMainColorsCheckedListBox";
-            this.mMainColorsCheckedListBox.Size = new System.Drawing.Size(102, 157);
+            this.mMainColorsCheckedListBox.Size = new System.Drawing.Size(102, 174);
             this.mMainColorsCheckedListBox.TabIndex = 3;
             // 
             // mSearchButton
             // 
-            this.mSearchButton.Location = new System.Drawing.Point(997, 146);
+            this.mSearchButton.Location = new System.Drawing.Point(1014, 184);
             this.mSearchButton.Name = "mSearchButton";
             this.mSearchButton.Size = new System.Drawing.Size(75, 23);
             this.mSearchButton.TabIndex = 4;
@@ -95,7 +95,7 @@
             // 
             // mClearButton
             // 
-            this.mClearButton.Location = new System.Drawing.Point(1094, 145);
+            this.mClearButton.Location = new System.Drawing.Point(1095, 184);
             this.mClearButton.Name = "mClearButton";
             this.mClearButton.Size = new System.Drawing.Size(75, 23);
             this.mClearButton.TabIndex = 5;
@@ -128,7 +128,7 @@
             "Gray"});
             this.mSecondaryColorsCheckedListBox.Location = new System.Drawing.Point(120, 33);
             this.mSecondaryColorsCheckedListBox.Name = "mSecondaryColorsCheckedListBox";
-            this.mSecondaryColorsCheckedListBox.Size = new System.Drawing.Size(102, 157);
+            this.mSecondaryColorsCheckedListBox.Size = new System.Drawing.Size(102, 174);
             this.mSecondaryColorsCheckedListBox.TabIndex = 7;
             // 
             // mSecondaryLabel
@@ -187,9 +187,9 @@
             this.mSearchTypeLabel.AutoSize = true;
             this.mSearchTypeLabel.Location = new System.Drawing.Point(232, 129);
             this.mSearchTypeLabel.Name = "mSearchTypeLabel";
-            this.mSearchTypeLabel.Size = new System.Drawing.Size(125, 17);
+            this.mSearchTypeLabel.Size = new System.Drawing.Size(159, 17);
             this.mSearchTypeLabel.TabIndex = 13;
-            this.mSearchTypeLabel.Text = "Color Search Style";
+            this.mSearchTypeLabel.Text = "Main Color Search Style";
             // 
             // mAndRadioButton
             // 
@@ -201,10 +201,12 @@
             this.mAndRadioButton.TabStop = true;
             this.mAndRadioButton.Text = "And";
             this.mAndRadioButton.UseVisualStyleBackColor = true;
+            this.mAndRadioButton.CheckedChanged += new System.EventHandler(this.MAndRadioButton_CheckedChanged);
             // 
             // mOrRadioButton
             // 
             this.mOrRadioButton.AutoSize = true;
+            this.mOrRadioButton.Checked = true;
             this.mOrRadioButton.Location = new System.Drawing.Point(303, 150);
             this.mOrRadioButton.Name = "mOrRadioButton";
             this.mOrRadioButton.Size = new System.Drawing.Size(45, 21);
@@ -212,6 +214,7 @@
             this.mOrRadioButton.TabStop = true;
             this.mOrRadioButton.Text = "Or";
             this.mOrRadioButton.UseVisualStyleBackColor = true;
+            this.mOrRadioButton.CheckedChanged += new System.EventHandler(this.MOrRadioButton_CheckedChanged);
             // 
             // Form1
             // 

@@ -16,7 +16,7 @@ namespace PicIN
 
         #region Public Properties
 
-        public ConcurrentDictionary<string, string> ImageData { get; }
+        public ConcurrentDictionary<string, string> ProcessedImages { get; }
         #endregion
 
         #region Private Methods
@@ -33,21 +33,21 @@ namespace PicIN
 
             ImageData image = new ImageData();
             image.mPath = path;
-            image.mLuminocity = image.LuminocityStringToEnum(luminocity);
+            image.mLuminocity = ImageData.LuminocityStringToEnum(luminocity);
             image.mComplexity = float.Parse(complexity);
-            mainColors.Where(e => !String.IsNullOrEmpty(e)).ToList().ForEach(e => image.mMainColors.Add(image.ColorStringToEnum(e)));
-            secondaryColors.Where(e => !String.IsNullOrEmpty(e)).ToList().ForEach(e => image.mSecondaryColors.Add(image.ColorStringToEnum(e)));
-            image.mColorWeight[image.ColorStringToEnum("red")] = float.Parse(red);
-            image.mColorWeight[image.ColorStringToEnum("yellow")] = float.Parse(yellow);
-            image.mColorWeight[image.ColorStringToEnum("green")] = float.Parse(green);
-            image.mColorWeight[image.ColorStringToEnum("cyan")] = float.Parse(cyan);
-            image.mColorWeight[image.ColorStringToEnum("blue")] = float.Parse(blue);
-            image.mColorWeight[image.ColorStringToEnum("purple")] = float.Parse(purple);
-            image.mColorWeight[image.ColorStringToEnum("black")] = float.Parse(black);
-            image.mColorWeight[image.ColorStringToEnum("gray")] = float.Parse(gray);
-            image.mColorWeight[image.ColorStringToEnum("white")] = float.Parse(white);
+            mainColors.Where(e => !String.IsNullOrEmpty(e)).ToList().ForEach(e => image.mMainColors.Add(ImageData.ColorStringToEnum(e)));
+            secondaryColors.Where(e => !String.IsNullOrEmpty(e)).ToList().ForEach(e => image.mSecondaryColors.Add(ImageData.ColorStringToEnum(e)));
+            image.mColorWeight[ImageData.ColorStringToEnum("red")] = float.Parse(red);
+            image.mColorWeight[ImageData.ColorStringToEnum("yellow")] = float.Parse(yellow);
+            image.mColorWeight[ImageData.ColorStringToEnum("green")] = float.Parse(green);
+            image.mColorWeight[ImageData.ColorStringToEnum("cyan")] = float.Parse(cyan);
+            image.mColorWeight[ImageData.ColorStringToEnum("blue")] = float.Parse(blue);
+            image.mColorWeight[ImageData.ColorStringToEnum("purple")] = float.Parse(purple);
+            image.mColorWeight[ImageData.ColorStringToEnum("black")] = float.Parse(black);
+            image.mColorWeight[ImageData.ColorStringToEnum("gray")] = float.Parse(gray);
+            image.mColorWeight[ImageData.ColorStringToEnum("white")] = float.Parse(white);
 
-            mController.ImageListAll.Add(image);
+            mController.ImagesConcurrentBag.Add(image);
         }
         #endregion
 
@@ -61,12 +61,12 @@ namespace PicIN
             // Re-indexing a directory from scratch
             // If data from a previous run or directory is stored in memory
             // replace it with a new container, let garbage collection clean up the memory
-            if (!mController.ImageListAll.IsEmpty)
-                mController.ImageListAll = new ConcurrentBag<ImageData>();
+            if (!mController.ImagesConcurrentBag.IsEmpty)
+                mController.ImagesConcurrentBag = new ConcurrentBag<ImageData>();
 
              _ = Parallel.ForEach(mFSHelper.ImageList, img => ProcessImage(img.FullName));
 
-            return !mController.ImageListAll.IsEmpty;
+            return !mController.ImagesConcurrentBag.IsEmpty;
         }
 
         #endregion
@@ -97,7 +97,7 @@ namespace PicIN
             Null = 9
         }
 
-        public Luminocity LuminocityStringToEnum(String lum)
+        public static Luminocity LuminocityStringToEnum(String lum)
         {
             if (String.Compare(lum, "bright", true) == 0)
                 return Luminocity.Bright;
@@ -109,7 +109,7 @@ namespace PicIN
             return Luminocity.Null;
         }
 
-        public Color ColorStringToEnum(string color)
+        public static Color ColorStringToEnum(string color)
         {
             if (String.Compare(color, "red", true) == 0)
                 return Color.Red;
