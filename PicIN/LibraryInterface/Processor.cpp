@@ -1,6 +1,6 @@
 #include "pch.h"
 
-namespace fs = std::experimental::filesystem;
+namespace fs = std::filesystem;
 
 namespace Core
 {
