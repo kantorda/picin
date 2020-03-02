@@ -29,6 +29,7 @@ namespace PicIN
         public Form1()
         {
             InitializeComponent();
+            mFolderBrowserDialog.RootFolder = Environment.SpecialFolder.MyComputer;
         }
         #endregion
 
