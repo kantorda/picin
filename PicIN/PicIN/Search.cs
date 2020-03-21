@@ -38,7 +38,6 @@ namespace PicIN
         public async Task SearchAsync()
         {
             mController.ImagesSearchResults = mController.ImagesConcurrentBag.ToList<ImageData>();
-            mController.ImageListSearchResults.Images.Clear();
 
             colorSearch();
 

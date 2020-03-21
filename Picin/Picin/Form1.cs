@@ -18,7 +18,6 @@ namespace PicIN
         ImageProcessing mImageProcessing = new ImageProcessing();
         FolderBrowserDialog mFolderBrowserDialog = new FolderBrowserDialog();
         Search mSearch = new Search();
-
         #endregion
 
         #region Public Properties
@@ -40,7 +39,7 @@ namespace PicIN
         #region Private Methods
         private Image getThumbnail(Image img)
         {
-            int width = mController.ImageListAll.ImageSize.Width;
+            int width = new Size(108, 108).Width;
             Image thumb = new Bitmap(width, width);
             Image tmp = null;
 
@@ -103,21 +102,16 @@ namespace PicIN
 
                 await mSearch.SearchAsync();
 
-                mImageListView.Clear();
+                mFlowLayoutPanel.Controls.Clear();
 
                 foreach (ImageData image in mController.ImagesSearchResults)
                 {
                     Image img = Image.FromFile(image.mPath);
-                    mController.ImageListSearchResults.Images.Add(getThumbnail(img));
-                }
 
-                for (int i = 0; i < mController.ImageListSearchResults.Images.Count; ++i)
-                {
-                    mImageListView.Items.Add("", i);
+                    ThumbnailControl thumbnail = new ThumbnailControl();
+                    thumbnail.setImage(getThumbnail(img), image.mPath);
+                    mFlowLayoutPanel.Controls.Add(thumbnail);
                 }
-
-                mImageListView.View = View.LargeIcon;
-                mImageListView.LargeImageList = mController.ImageListSearchResults;
 
                 enableButtons(true);
             }));
@@ -192,19 +186,16 @@ namespace PicIN
 
                     await mImageProcessing.ProcessDirectoryAsync(mController.TargetDirectory.FullName);
 
+                    mFlowLayoutPanel.Controls.Clear();
+
                     foreach (FileInfo file in mController.TargetDirectory.GetFiles())
                     {
                         Image img = Image.FromFile(file.FullName);
-                        mController.ImageListAll.Images.Add(getThumbnail(img));
-                    }
 
-                    for (int i = 0; i < mController.ImageListAll.Images.Count; ++i)
-                    {
-                        mImageListView.Items.Add("", i);
+                        ThumbnailControl thumbnail = new ThumbnailControl();
+                        thumbnail.setImage(getThumbnail(img), file.FullName);
+                        mFlowLayoutPanel.Controls.Add(thumbnail);
                     }
-
-                    mImageListView.View = View.LargeIcon;
-                    mImageListView.LargeImageList = mController.ImageListAll;
                 }
 
                 enableButtons(true);
@@ -227,15 +218,16 @@ namespace PicIN
                     mComplexityCheckedListBox.SetItemCheckState(i, CheckState.Unchecked);
 
                 // Reset ImageList to all images
-                mImageListView.Clear();
+                mFlowLayoutPanel.Controls.Clear();
 
-                for (int i = 0; i < mController.ImageListAll.Images.Count; ++i)
+                foreach (FileInfo file in mController.TargetDirectory.GetFiles())
                 {
-                    mImageListView.Items.Add("", i);
-                }
+                    Image img = Image.FromFile(file.FullName);
 
-                mImageListView.View = View.LargeIcon;
-                mImageListView.LargeImageList = mController.ImageListAll;
+                    ThumbnailControl thumbnail = new ThumbnailControl();
+                    thumbnail.setImage(getThumbnail(img), file.FullName);
+                    mFlowLayoutPanel.Controls.Add(thumbnail);
+                }
 
                 enableButtons(true);
             }));

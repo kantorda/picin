@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.mFolderSelectButton = new System.Windows.Forms.Button();
-            this.mImageListView = new System.Windows.Forms.ListView();
             this.mMainColorsCheckedListBox = new System.Windows.Forms.CheckedListBox();
             this.mSearchButton = new System.Windows.Forms.Button();
             this.mClearButton = new System.Windows.Forms.Button();
@@ -43,6 +42,7 @@
             this.mSearchTypeLabel = new System.Windows.Forms.Label();
             this.mAndRadioButton = new System.Windows.Forms.RadioButton();
             this.mOrRadioButton = new System.Windows.Forms.RadioButton();
+            this.mFlowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.SuspendLayout();
             // 
             // mFolderSelectButton
@@ -54,15 +54,6 @@
             this.mFolderSelectButton.Text = "Open Folder";
             this.mFolderSelectButton.UseVisualStyleBackColor = true;
             this.mFolderSelectButton.Click += new System.EventHandler(this.FolderSelectButton_Click);
-            // 
-            // mImageListView
-            // 
-            this.mImageListView.HideSelection = false;
-            this.mImageListView.Location = new System.Drawing.Point(12, 215);
-            this.mImageListView.Name = "mImageListView";
-            this.mImageListView.Size = new System.Drawing.Size(1158, 697);
-            this.mImageListView.TabIndex = 2;
-            this.mImageListView.UseCompatibleStateImageBehavior = false;
             // 
             // mMainColorsCheckedListBox
             // 
@@ -216,11 +207,22 @@
             this.mOrRadioButton.UseVisualStyleBackColor = true;
             this.mOrRadioButton.CheckedChanged += new System.EventHandler(this.MOrRadioButton_CheckedChanged);
             // 
+            // mFlowLayoutPanel
+            // 
+            this.mFlowLayoutPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.mFlowLayoutPanel.AutoScroll = true;
+            this.mFlowLayoutPanel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.mFlowLayoutPanel.Location = new System.Drawing.Point(15, 214);
+            this.mFlowLayoutPanel.Name = "mFlowLayoutPanel";
+            this.mFlowLayoutPanel.Size = new System.Drawing.Size(1155, 698);
+            this.mFlowLayoutPanel.TabIndex = 16;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1182, 953);
+            this.Controls.Add(this.mFlowLayoutPanel);
             this.Controls.Add(this.mOrRadioButton);
             this.Controls.Add(this.mAndRadioButton);
             this.Controls.Add(this.mSearchTypeLabel);
@@ -234,7 +236,6 @@
             this.Controls.Add(this.mClearButton);
             this.Controls.Add(this.mSearchButton);
             this.Controls.Add(this.mMainColorsCheckedListBox);
-            this.Controls.Add(this.mImageListView);
             this.Controls.Add(this.mFolderSelectButton);
             this.MinimumSize = new System.Drawing.Size(1200, 1000);
             this.Name = "Form1";
@@ -246,7 +247,6 @@
 
         #endregion
         private System.Windows.Forms.Button mFolderSelectButton;
-        private System.Windows.Forms.ListView mImageListView;
         private System.Windows.Forms.CheckedListBox mMainColorsCheckedListBox;
         private System.Windows.Forms.Button mSearchButton;
         private System.Windows.Forms.Button mClearButton;
@@ -260,6 +260,7 @@
         private System.Windows.Forms.Label mSearchTypeLabel;
         private System.Windows.Forms.RadioButton mAndRadioButton;
         private System.Windows.Forms.RadioButton mOrRadioButton;
+        private System.Windows.Forms.FlowLayoutPanel mFlowLayoutPanel;
     }
 }
 

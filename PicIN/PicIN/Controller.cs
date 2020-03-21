@@ -14,10 +14,6 @@ namespace PicIN
         static Controller() { }
         private Controller()
         {
-            ImageListAll.ImageSize = new Size(108, 108);
-            ImageListAll.ColorDepth = ColorDepth.Depth32Bit;
-            ImageListSearchResults.ImageSize = new Size(108, 108);
-            ImageListSearchResults.ColorDepth = ColorDepth.Depth32Bit;
         }
         #endregion
 
@@ -30,8 +26,6 @@ namespace PicIN
         public DirectoryInfo TargetDirectory;
         public ConcurrentBag<ImageData> ImagesConcurrentBag = new ConcurrentBag<ImageData>();
         public List<ImageData> ImagesSearchResults = new List<ImageData>();
-        public ImageList ImageListAll = new ImageList();
-        public ImageList ImageListSearchResults = new ImageList();
         #endregion        
 
         #region Private Methods
